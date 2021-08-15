@@ -90,7 +90,7 @@ export function round(number: number, digits = 2) {
 }
 
 export function validateURI(input: string): boolean {
-  const validTypes = ['album', 'artist', 'playlist', 'show', 'track'];
+  const validTypes = ['album', 'artist', 'playlist', 'show', 'track', 'episode'];
 
   /* istanbul ignore else */
   if (input && input.indexOf(':') > -1) {
