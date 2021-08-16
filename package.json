@@ -83,7 +83,7 @@
     "test": "is-ci \"test:coverage\" \"test:watch\"",
     "test:coverage": "jest --bail --coverage",
     "test:watch": "jest --watchAll --verbose",
-    "lint": "eslint --ext .ts,.tsx src test",
+    "lint": "eslint --ext .ts,.tsx src test --ignore-pattern lib esm",
     "format": "prettier \"**/*.{js,jsx,json,yml,yaml,css,less,scss,ts,tsx,md,graphql,mdx}\" --write",
     "validate": "npm run lint && npm run test:coverage && npm run build && npm run size",
     "size": "size-limit",
@@ -115,7 +115,7 @@
   "prettier": "@gilbarbara/prettier-config",
   "lint-staged": {
     "*.(ts|tsx)": [
-      "eslint --fix",
+      "eslint --fix --ignore-pattern lib --ignore-pattern esm",
       "jest --bail --findRelatedTests"
     ],
     "*.(js|jsx|json|yml|yaml|ts|tsx|md|mdx)": [
