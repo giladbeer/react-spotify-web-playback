@@ -121,6 +121,10 @@ var SpotifyWebPlayer = /** @class */ (function (_super) {
                     console.error('Invalid URI');
                     return playOptions;
                 }
+                if (getSpotifyURIType(ids[0]) === 'episode') {
+                    playOptions.uris = ids;
+                    return playOptions;
+                }
                 if (ids.some(function (d) { return getSpotifyURIType(d) === 'track'; })) {
                     if (!ids.every(function (d) { return getSpotifyURIType(d) === 'track'; })) {
                         // eslint-disable-next-line no-console
