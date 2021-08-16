@@ -76,6 +76,12 @@ class SpotifyWebPlayer extends React.PureComponent<Props, State> {
         return playOptions;
       }
 
+      if (getSpotifyURIType(ids[0]) === 'episode') {
+        playOptions.uris = ids;
+
+        return playOptions;
+      }
+
       if (ids.some(d => getSpotifyURIType(d) === 'track')) {
         if (!ids.every(d => getSpotifyURIType(d) === 'track')) {
           // eslint-disable-next-line no-console
